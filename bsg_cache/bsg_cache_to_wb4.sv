@@ -49,7 +49,7 @@ module bsg_cache_to_wb4
     , input  logic [num_cache_p-1:0]                       dma_data_v_i
     , output logic [num_cache_p-1:0]                       dma_data_yumi_o
 
-    // Wishbone B4 Pipelined Master Interface
+    // Wishbone B4 Pipelined Interface
     , output logic [wb_addr_width_p-1:0]                   wb_adr_o
     , output logic [wb_data_width_p-1:0]                   wb_dat_o
     , input  logic [wb_data_width_p-1:0]                   wb_dat_i
@@ -104,7 +104,7 @@ module bsg_cache_to_wb4
   // =========================================================================
   // Block 3: Pipelined Counters & Address Generator
   // =========================================================================
-  // We track TWO counters because Wishbone B4 is pipelined:
+  // we track TWO counters because Wishbone B4 is pipelined:
   // 1. req_cnt_r: counts address requests accepted by slave (stb && !stall)
   // 2. ack_cnt_r: counts responses acknowledged by slave (ack)
   logic [lg_num_req_lp-1:0] req_cnt_r;
@@ -156,7 +156,7 @@ module bsg_cache_to_wb4
                              : 1'b0;
   end
   // =========================================================================
-  // Block 6: Master FSM, Request Strobe & ACK Tracker
+  // Block 6: FSM, Request Strobe & ACK Tracker
   // =========================================================================
   logic req_done_r;
 
