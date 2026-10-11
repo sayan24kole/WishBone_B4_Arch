@@ -7,6 +7,7 @@
  *    - Configurable response latency pipeline (latency_p)
  *    - Byte-level write strobing via wb_sel_i
  *    - Byte-to-word address translation
+ *    - 2048 words in memory
  */
 
 `timescale 1ns / 1ps
